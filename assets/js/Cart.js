@@ -97,7 +97,7 @@ const Card = {
             }
         }
         else {
-            console.log("You idiot");
+            console.log("You idiot!");
         }
     }
 }
