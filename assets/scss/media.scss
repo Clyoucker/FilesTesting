@@ -1,0 +1,25 @@
+@mixin display-1024{
+
+}
+@mixin display-400-1023{
+
+}
+
+@mixin display-0-399{
+
+}
+
+
+@media all and (min-width: 1024px){
+    @include display-1024;
+}
+
+@media all and (min-width: 400px) and (max-width: 1023px){
+    @include display-400-1023;
+}
+
+@media all and (min-width: 260px) and (max-width: 399px){
+    @include display-0-399;
+}
+
+

@@ -1,0 +1,6 @@
+%hovering-item{
+    transition: $transition;
+    &:hover{
+        color: #ffffff;
+    }
+}
