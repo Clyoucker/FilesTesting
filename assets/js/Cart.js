@@ -1,24 +1,12 @@
 "use strict";
 
-
-
 const category = {items: new Array(),}
 const file = require("fs");
 const path = "../jsons/items.json";
-const ffs = require("../jsons/items.json");
-
-file.stat(path, (error, stats) =>{
-    if (!error) {console.log("Файл найден");}
-    else {
-        console.log("Файл не найден");
-        file.writeFile("../jsons/items.json",JSON.stringify(category),(error) => {
-            if (error){return "No Was Created";}
-        });}
-});
 
 const Card = {
     //items : {items:[]},
-    items: {"items":[{"item":"mouse","price":432,"count":2},{"item":"screen","price":65,"count":4}]},
+    items: category,
     allItems : new Set(),
     totalPrice : 0,
     allCount : 0,
@@ -44,14 +32,15 @@ const Card = {
     },
 
     addItem(item="unknown",price=0,count=1){
+        console.log(this.allItems)
         this.getAllItems(this.items,"items");
 
         if (this.allItems.has(item)){
             let index = this.getItemIndex(this.items,"items",item);
             let newCount = this.items["items"][index].count + count;
             if (!newCount < 1){
-                this.items["items"][index].price=price;
-                this.items["items"][index].count=newCount;
+                this.items["items"][index].price = price;
+                this.items["items"][index].count = newCount;
             } else {
                 console.log("Count!")
             }
@@ -65,12 +54,12 @@ const Card = {
             this.items["items"].push(obj);
         }
         this.getAllItems(this.items,"items");
-        file.writeFile("../jsons/items.json",JSON.stringify(this.items),(error) => {
+        file.writeFile(path,JSON.stringify(this.items),(error) => {
             if (!error){console.log("File Was Update");}
         });
     },
 
-    calc(category,price=null,count,array=this.items){
+    calculate(category,price=null,count,array=this.items){
 
         let arrayLength = array[category].length;
 
@@ -104,10 +93,13 @@ const Card = {
 
 
 
-//Card.addItem("mouse",432,2);
-//Card.addItem("screen",65,4);
+Card.addItem("mouse",432,2);
+Card.addItem("screen",65,4);
+Card.addItem("game",65,4);
+Card.addItem("screen",65,-2);
+Card.addItem("screen",65,-1);
 
-Card.calc("items","yes","no")
+Card.calculate("items","yes","no")
 console.log(Card.totalPrice,Card.allCount)
 
 
