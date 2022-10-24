@@ -7,6 +7,7 @@ const path = "../jsons/items.json";
 const Card = {
     //items : {items:[]},
     items: category,
+    //items: require(path),
     allItems : new Set(),
     totalPrice : 0,
     allCount : 0,
@@ -27,12 +28,7 @@ const Card = {
         }
     },
 
-    getTotalPrice(){
-
-    },
-
     addItem(item="unknown",price=0,count=1){
-        console.log(this.allItems)
         this.getAllItems(this.items,"items");
 
         if (this.allItems.has(item)){
@@ -53,8 +49,9 @@ const Card = {
             }
             this.items["items"].push(obj);
         }
+        this.calculate("items","yes","yes");
         this.getAllItems(this.items,"items");
-        file.writeFile(path,JSON.stringify(this.items),(error) => {
+        file.writeFile(path, JSON.stringify(this.items),(error) => {
             if (!error){console.log("File Was Update");}
         });
     },
@@ -88,7 +85,22 @@ const Card = {
         else {
             console.log("You idiot!");
         }
+    },
+
+    clear(array=this.items){
+        this.items["items"].splice(0,this.items["items"].length);
+        this.calculate("items","yes","yes");
+        file.writeFile(path,"[]",(error) => {
+            if (!error){console.log("File Was Cleared");}
+        });
+    },
+
+    print(){
+        //let datas = require(path);
+        console.log(this.items)
+        console.log(`Count:${this.allCount} || Price:${this.totalPrice}`)
     }
+
 }
 
 
@@ -99,8 +111,7 @@ Card.addItem("game",65,4);
 Card.addItem("screen",65,-2);
 Card.addItem("screen",65,-1);
 
-Card.calculate("items","yes","no")
-console.log(Card.totalPrice,Card.allCount)
+Card.print()
 
 
 
