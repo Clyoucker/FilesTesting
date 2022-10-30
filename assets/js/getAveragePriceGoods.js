@@ -12,13 +12,12 @@ const allCashbox = [
 const getAveragePriceGoods = (array) => {
     let productCount,productCash; productCount = productCash = 0
     const outArrayLength = array.length; const insideArrayLength = array[0].length;
-    let i = 0;
 
-    while (outArrayLength > i){
+    for (let i = 0; i < outArrayLength ; i++) {
         productCount += array[i][insideArrayLength%2];
         productCash += array[i][insideArrayLength%2] * array[i][insideArrayLength/2];
-        i ++;
     }
+
     return Math.floor(productCash/productCount);
 }
 

@@ -1,3 +1,5 @@
+"use strict";
+
 const error = (message) => {alert(message)}
 const print = (args=[]) => {
     for(const arg of args){console.log(arg)}
@@ -39,7 +41,27 @@ const is = (value, bool) => {
 }
 
 
+const maxLenght = 64;
 
+const RandomArray = (min, max, type=undefined, lenght=maxLenght) => {
+    const array = [];
+    for (let i = 0; i < lenght; i ++){
+        let randomValue = Math.round(Math.random() * (max - min) + min)
+        if (between(min,randomValue,max)){
+            if (type === undefined){array.push(randomValue)}
+            else if (type === "even"){
+                if (even(randomValue)){array.push(randomValue)}
+                else {i --}
+            }
+            else if (type === "odd"){
+                if (odd(randomValue)){array.push(randomValue)}
+                else {i --}
+            }
+            else error("Unknown Error!")
+        }
+        else {i --}
+    }
+    return array;
+}
 
-
-
+console.log(RandomArray(-25,50,"odd"))

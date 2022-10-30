@@ -1,29 +1,25 @@
+"use strict";
 
-const weeks = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const weeks = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
 const date = new Date().getDay()-1;
-const ul = document.createElement("ul");
-ul.className = "ul";
-const section = document.querySelector(".section");
 
+const main = document.querySelector(".main")
+const ul = document.createElement("ul"); ul.className = "ul";
+const section = document.createElement("section"); section.className = "section";
 
 weeks.forEach((week) => {
 	let li = document.createElement("li");
 	li.style.color = "Black";
-	if (week === weeks[date]){
-		li.style.fontStyle = "Italic";
-		li.innerHTML = week;
-	}
-	else if (week === "Saturday" || week === "Sunday"){
+	if (week === weeks.at(date)){
 		li.style.fontWeight = "Bold";
-		li.innerHTML = week;
+		if (week === "Сб" || week === "Вс"){li.style.fontStyle = "Italic";}
 	}
-	else {
-		li.innerHTML = week;
-	}
+	else if (week === "Сб" || week === "Вс"){li.style.fontStyle = "Italic";}
+	li.textContent = week;
 	ul.append(li);
 });
-
 section.append(ul);
+main.append(section)
 
 
 

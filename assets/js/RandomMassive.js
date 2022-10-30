@@ -3,16 +3,14 @@
 const maxValue = 100;
 const maxLenght = 64;
 
-
 const RandomArray = (lenght, value) => {
-    const array = new Array();
+    const array = [];
     for (let i = 0; i < lenght; i ++){
         let randomValue = Math.round(Math.random()*value)
-        array.unshift(randomValue);
+        array.push(randomValue);
     }
     return array;
 }
 
-const newArray = RandomArray(maxLenght,maxValue);
-console.log(newArray)
+console.log(RandomArray(maxLenght,maxValue))
 
