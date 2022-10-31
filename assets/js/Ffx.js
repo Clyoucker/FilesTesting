@@ -1,8 +1,26 @@
-const print = (message) => {console.log(message)}
-const length = (value) => {return value = value.length}
+const error = (message) => {alert(message)}
+const print = (args=[]) => {
+    for(const arg of args){console.log(arg)}
+}
 const type = (value) => {return typeof(value)}
 const int = (value) => {return value = Number(value)}
 const str = (value) => {return value = String(value)}
+const between = (min,value,max) => {
+    if (max > min){
+        if (value >= min && value <= max){return true}
+        else {return false}
+    }
+    else {alert(`Error:[max <= min]:[${max} <= ${min}]`)}
+
+}
+const even = (value) => {
+    if (value % 2 === 0){return value}
+    else {return false}
+}
+const odd = (value) => {
+    if (value % 2 === 1 || value % 2 === -1){return value}
+    else {return false}
+}
 const bool = (value) => {
     if (value === true){return false}
     else if (value === false){return true}
@@ -18,6 +36,9 @@ const is = (value, bool) => {
     else {
         return false;
     }
+}
+const random = (value=undefined,lenght=1,min=undefined,max=undefined) => {
+
 }
 
 const transfer = {
