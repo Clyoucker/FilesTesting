@@ -1,10 +1,3 @@
-//export const print = (args=[]) => {
-    //for(const arg of args){console.log(arg)}
-//}
-
-
-
-
 const Python = {
     error(message){alert(message)},
     print(args=[]){for(const arg of args){console.log(arg)}},
