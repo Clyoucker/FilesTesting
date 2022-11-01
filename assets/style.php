@@ -1,6 +1,5 @@
 <?php
-$arr = Array
-(
+$arr = Array(
     0 => 1,
     1 => 2,
     2 => 3,
