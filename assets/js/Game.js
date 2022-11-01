@@ -2,7 +2,6 @@
 
 const maxValue = 100; const maxLenght = 100;
 
-
 const RandomArray = (lenght, value) => {
     const array = new Array();
     for (let i = 0; i < lenght; i ++){
