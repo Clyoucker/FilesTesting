@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
     <title>Document</title>
 </head>
 <body class = "page">
     <div class = "wrapper">
-        <!--@import "header.html"-->
+        <header class="header"></header>
         <main class="main">
-            <!--@import "index-page.html"-->
+            <?php require "test.php" ?>
         </main>
+        <footer></footer>
     </div>
-    <script src="../assets/js/script.js"></script>
 </body>
 </html>

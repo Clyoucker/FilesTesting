@@ -8,16 +8,15 @@ const str = (value) => {return value = String(value)}
 
 
 
-const calc = document.querySelector("#title");
-const button = document.querySelector(".handler_btn");
+const calc = document.getElementsByTagName("h1");
+const btns = document.getElementsByClassName("handler_btn")
 const plus = document.querySelector(".screen-btn");
 const percent = document.querySelectorAll(".percent");
 const number = document.querySelectorAll(".number");
-const rollback = document.querySelector(".rollback");
-const span = document.querySelector(".range-value");
-const total =  document.querySelector(".total-input");
-let screen =  document.querySelectorAll(".range-value");
-
+const rollback = document.querySelector(".rollback input[type='range']");
+const span = document.querySelector(".rollback .range-value");
+const total =  document.getElementsByClassName("total-input");
+let screen =  document.querySelectorAll(".screen");
 
 
 print(calc);
